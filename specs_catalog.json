@@ -1,0 +1,1264 @@
+{
+  "Audi": {
+    "A4": {
+      "engine": 1968,
+      "max_power": 167.6,
+      "mileage": 17.1,
+      "seats": 5,
+      "fuel_type": "Diesel",
+      "transmission_type": "Automatic",
+      "sample_count": 99,
+      "median_historical_price": 1375000.0
+    },
+    "A6": {
+      "engine": 1968,
+      "max_power": 174.3,
+      "mileage": 17.7,
+      "seats": 5,
+      "fuel_type": "Diesel",
+      "transmission_type": "Automatic",
+      "sample_count": 64,
+      "median_historical_price": 1763000.0
+    },
+    "A8": {
+      "engine": 2967,
+      "max_power": 246.7,
+      "mileage": 11.8,
+      "seats": 5,
+      "fuel_type": "Diesel",
+      "transmission_type": "Automatic",
+      "sample_count": 6,
+      "median_historical_price": 2700000.0
+    },
+    "Q7": {
+      "engine": 2967,
+      "max_power": 241.4,
+      "mileage": 12.1,
+      "seats": 7,
+      "fuel_type": "Diesel",
+      "transmission_type": "Automatic",
+      "sample_count": 23,
+      "median_historical_price": 2375000.0
+    }
+  },
+  "Bentley": {
+    "Continental": {
+      "engine": 5998,
+      "max_power": 600.0,
+      "mileage": 8.6,
+      "seats": 4,
+      "fuel_type": "Petrol",
+      "transmission_type": "Automatic",
+      "sample_count": 3,
+      "median_historical_price": 8100000.0
+    }
+  },
+  "Bmw": {
+    "3": {
+      "engine": 1995,
+      "max_power": 184.0,
+      "mileage": 18.9,
+      "seats": 5,
+      "fuel_type": "Diesel",
+      "transmission_type": "Automatic",
+      "sample_count": 152,
+      "median_historical_price": 1650000.0
+    },
+    "5": {
+      "engine": 1995,
+      "max_power": 190.0,
+      "mileage": 18.1,
+      "seats": 5,
+      "fuel_type": "Diesel",
+      "transmission_type": "Automatic",
+      "sample_count": 118,
+      "median_historical_price": 2625000.0
+    },
+    "6": {
+      "engine": 2993,
+      "max_power": 261.4,
+      "mileage": 14.3,
+      "seats": 4,
+      "fuel_type": "Diesel",
+      "transmission_type": "Automatic",
+      "sample_count": 18,
+      "median_historical_price": 5550000.0
+    },
+    "7": {
+      "engine": 2993,
+      "max_power": 258.0,
+      "mileage": 16.5,
+      "seats": 5,
+      "fuel_type": "Diesel",
+      "transmission_type": "Automatic",
+      "sample_count": 37,
+      "median_historical_price": 2590000.0
+    },
+    "X1": {
+      "engine": 1995,
+      "max_power": 188.0,
+      "mileage": 19.6,
+      "seats": 5,
+      "fuel_type": "Diesel",
+      "transmission_type": "Automatic",
+      "sample_count": 54,
+      "median_historical_price": 2125000.0
+    },
+    "X3": {
+      "engine": 1995,
+      "max_power": 184.0,
+      "mileage": 16.1,
+      "seats": 5,
+      "fuel_type": "Diesel",
+      "transmission_type": "Automatic",
+      "sample_count": 23,
+      "median_historical_price": 2175000.0
+    },
+    "X4": {
+      "engine": 1995,
+      "max_power": 190.0,
+      "mileage": 16.8,
+      "seats": 5,
+      "fuel_type": "Diesel",
+      "transmission_type": "Automatic",
+      "sample_count": 6,
+      "median_historical_price": 5600000.0
+    },
+    "X5": {
+      "engine": 2993,
+      "max_power": 258.0,
+      "mileage": 15.3,
+      "seats": 5,
+      "fuel_type": "Diesel",
+      "transmission_type": "Automatic",
+      "sample_count": 25,
+      "median_historical_price": 3995000.0
+    },
+    "Z4": {
+      "engine": 2979,
+      "max_power": 303.9,
+      "mileage": 10.4,
+      "seats": 2,
+      "fuel_type": "Petrol",
+      "transmission_type": "Automatic",
+      "sample_count": 6,
+      "median_historical_price": 3712000.0
+    }
+  },
+  "Datsun": {
+    "Go": {
+      "engine": 1198,
+      "max_power": 67.0,
+      "mileage": 19.8,
+      "seats": 7,
+      "fuel_type": "Petrol",
+      "transmission_type": "Manual",
+      "sample_count": 85,
+      "median_historical_price": 350000.0
+    },
+    "Redi-Go": {
+      "engine": 899,
+      "max_power": 60.3,
+      "mileage": 21.2,
+      "seats": 5,
+      "fuel_type": "Petrol",
+      "transmission_type": "Manual",
+      "sample_count": 10,
+      "median_historical_price": 325000.0
+    },
+    "Redigo": {
+      "engine": 799,
+      "max_power": 53.6,
+      "mileage": 22.7,
+      "seats": 5,
+      "fuel_type": "Petrol",
+      "transmission_type": "Manual",
+      "sample_count": 75,
+      "median_historical_price": 270000.0
+    }
+  },
+  "Ferrari": {
+    "Gtc4Lusso": {
+      "engine": 3855,
+      "max_power": 601.0,
+      "mileage": 4.0,
+      "seats": 4,
+      "fuel_type": "Petrol",
+      "transmission_type": "Automatic",
+      "sample_count": 1,
+      "median_historical_price": 39500000.0
+    }
+  },
+  "Force": {
+    "Gurkha": {
+      "engine": 2596,
+      "max_power": 80.8,
+      "mileage": 17.0,
+      "seats": 5,
+      "fuel_type": "Diesel",
+      "transmission_type": "Manual",
+      "sample_count": 1,
+      "median_historical_price": 700000.0
+    }
+  },
+  "Ford": {
+    "Aspire": {
+      "engine": 1498,
+      "max_power": 99.0,
+      "mileage": 25.8,
+      "seats": 5,
+      "fuel_type": "Diesel",
+      "transmission_type": "Manual",
+      "sample_count": 65,
+      "median_historical_price": 530000.0
+    },
+    "Ecosport": {
+      "engine": 1498,
+      "max_power": 99.0,
+      "mileage": 22.7,
+      "seats": 5,
+      "fuel_type": "Diesel",
+      "transmission_type": "Manual",
+      "sample_count": 374,
+      "median_historical_price": 675000.0
+    },
+    "Endeavour": {
+      "engine": 3198,
+      "max_power": 197.0,
+      "mileage": 10.9,
+      "seats": 7,
+      "fuel_type": "Diesel",
+      "transmission_type": "Automatic",
+      "sample_count": 47,
+      "median_historical_price": 2500000.0
+    },
+    "Figo": {
+      "engine": 1399,
+      "max_power": 68.0,
+      "mileage": 20.0,
+      "seats": 5,
+      "fuel_type": "Diesel",
+      "transmission_type": "Manual",
+      "sample_count": 271,
+      "median_historical_price": 280000.0
+    },
+    "Freestyle": {
+      "engine": 1194,
+      "max_power": 94.7,
+      "mileage": 19.0,
+      "seats": 5,
+      "fuel_type": "Petrol",
+      "transmission_type": "Manual",
+      "sample_count": 33,
+      "median_historical_price": 680000.0
+    }
+  },
+  "Honda": {
+    "Amaze": {
+      "engine": 1199,
+      "max_power": 88.8,
+      "mileage": 19.5,
+      "seats": 5,
+      "fuel_type": "Petrol",
+      "transmission_type": "Manual",
+      "sample_count": 362,
+      "median_historical_price": 475000.0
+    },
+    "City": {
+      "engine": 1497,
+      "max_power": 117.3,
+      "mileage": 17.7,
+      "seats": 5,
+      "fuel_type": "Petrol",
+      "transmission_type": "Manual",
+      "sample_count": 757,
+      "median_historical_price": 620000.0
+    },
+    "Civic": {
+      "engine": 1799,
+      "max_power": 130.0,
+      "mileage": 13.5,
+      "seats": 5,
+      "fuel_type": "Petrol",
+      "transmission_type": "Manual",
+      "sample_count": 59,
+      "median_historical_price": 295000.0
+    },
+    "Cr": {
+      "engine": 2354,
+      "max_power": 187.4,
+      "mileage": 12.0,
+      "seats": 5,
+      "fuel_type": "Petrol",
+      "transmission_type": "Automatic",
+      "sample_count": 3,
+      "median_historical_price": 1750000.0
+    },
+    "Cr-V": {
+      "engine": 2354,
+      "max_power": 152.0,
+      "mileage": 12.0,
+      "seats": 5,
+      "fuel_type": "Petrol",
+      "transmission_type": "Automatic",
+      "sample_count": 28,
+      "median_historical_price": 1360000.0
+    },
+    "Jazz": {
+      "engine": 1199,
+      "max_power": 88.7,
+      "mileage": 18.7,
+      "seats": 5,
+      "fuel_type": "Petrol",
+      "transmission_type": "Manual",
+      "sample_count": 175,
+      "median_historical_price": 600000.0
+    },
+    "Wr-V": {
+      "engine": 1498,
+      "max_power": 98.6,
+      "mileage": 25.5,
+      "seats": 5,
+      "fuel_type": "Diesel",
+      "transmission_type": "Manual",
+      "sample_count": 101,
+      "median_historical_price": 800000.0
+    }
+  },
+  "Hyundai": {
+    "Aura": {
+      "engine": 1197,
+      "max_power": 81.9,
+      "mileage": 20.5,
+      "seats": 5,
+      "fuel_type": "Petrol",
+      "transmission_type": "Manual",
+      "sample_count": 1,
+      "median_historical_price": 900000.0
+    },
+    "Creta": {
+      "engine": 1582,
+      "max_power": 121.3,
+      "mileage": 19.7,
+      "seats": 5,
+      "fuel_type": "Diesel",
+      "transmission_type": "Manual",
+      "sample_count": 336,
+      "median_historical_price": 1000000.0
+    },
+    "Elantra": {
+      "engine": 1582,
+      "max_power": 126.2,
+      "mileage": 16.3,
+      "seats": 5,
+      "fuel_type": "Diesel",
+      "transmission_type": "Automatic",
+      "sample_count": 50,
+      "median_historical_price": 862500.0
+    },
+    "Grand": {
+      "engine": 1197,
+      "max_power": 81.9,
+      "mileage": 18.9,
+      "seats": 5,
+      "fuel_type": "Petrol",
+      "transmission_type": "Manual",
+      "sample_count": 580,
+      "median_historical_price": 475000.0
+    },
+    "I10": {
+      "engine": 1197,
+      "max_power": 78.9,
+      "mileage": 20.4,
+      "seats": 5,
+      "fuel_type": "Petrol",
+      "transmission_type": "Manual",
+      "sample_count": 410,
+      "median_historical_price": 275000.0
+    },
+    "I20": {
+      "engine": 1197,
+      "max_power": 81.9,
+      "mileage": 18.6,
+      "seats": 5,
+      "fuel_type": "Petrol",
+      "transmission_type": "Manual",
+      "sample_count": 906,
+      "median_historical_price": 550000.0
+    },
+    "Santro": {
+      "engine": 1086,
+      "max_power": 62.1,
+      "mileage": 17.9,
+      "seats": 5,
+      "fuel_type": "Petrol",
+      "transmission_type": "Manual",
+      "sample_count": 139,
+      "median_historical_price": 240000.0
+    },
+    "Tucson": {
+      "engine": 1995,
+      "max_power": 182.5,
+      "mileage": 16.4,
+      "seats": 5,
+      "fuel_type": "Diesel",
+      "transmission_type": "Automatic",
+      "sample_count": 10,
+      "median_historical_price": 1695000.0
+    },
+    "Venue": {
+      "engine": 998,
+      "max_power": 118.4,
+      "mileage": 18.3,
+      "seats": 5,
+      "fuel_type": "Petrol",
+      "transmission_type": "Manual",
+      "sample_count": 58,
+      "median_historical_price": 1047500.0
+    },
+    "Verna": {
+      "engine": 1582,
+      "max_power": 121.4,
+      "mileage": 19.1,
+      "seats": 5,
+      "fuel_type": "Diesel",
+      "transmission_type": "Manual",
+      "sample_count": 492,
+      "median_historical_price": 592500.0
+    }
+  },
+  "Isuzu": {
+    "D-Max": {
+      "engine": 2499,
+      "max_power": 134.0,
+      "mileage": 12.4,
+      "seats": 5,
+      "fuel_type": "Diesel",
+      "transmission_type": "Manual",
+      "sample_count": 7,
+      "median_historical_price": 1200000.0
+    },
+    "Mux": {
+      "engine": 2999,
+      "max_power": 175.0,
+      "mileage": 13.8,
+      "seats": 7,
+      "fuel_type": "Diesel",
+      "transmission_type": "Automatic",
+      "sample_count": 3,
+      "median_historical_price": 1900000.0
+    }
+  },
+  "Jaguar": {
+    "F-Pace": {
+      "engine": 1999,
+      "max_power": 177.0,
+      "mileage": 16.4,
+      "seats": 5,
+      "fuel_type": "Diesel",
+      "transmission_type": "Automatic",
+      "sample_count": 3,
+      "median_historical_price": 5000000.0
+    },
+    "Xe": {
+      "engine": 1999,
+      "max_power": 177.0,
+      "mileage": 13.6,
+      "seats": 5,
+      "fuel_type": "Diesel",
+      "transmission_type": "Automatic",
+      "sample_count": 4,
+      "median_historical_price": 3075000.0
+    },
+    "Xf": {
+      "engine": 2179,
+      "max_power": 187.7,
+      "mileage": 16.4,
+      "seats": 5,
+      "fuel_type": "Diesel",
+      "transmission_type": "Automatic",
+      "sample_count": 52,
+      "median_historical_price": 2400000.0
+    }
+  },
+  "Jeep": {
+    "Compass": {
+      "engine": 1956,
+      "max_power": 170.0,
+      "mileage": 17.1,
+      "seats": 5,
+      "fuel_type": "Diesel",
+      "transmission_type": "Manual",
+      "sample_count": 39,
+      "median_historical_price": 1599000.0
+    },
+    "Wrangler": {
+      "engine": 3604,
+      "max_power": 280.0,
+      "mileage": 9.5,
+      "seats": 5,
+      "fuel_type": "Petrol",
+      "transmission_type": "Automatic",
+      "sample_count": 2,
+      "median_historical_price": 5237500.0
+    }
+  },
+  "Kia": {
+    "Carnival": {
+      "engine": 2199,
+      "max_power": 197.2,
+      "mileage": 14.1,
+      "seats": 7,
+      "fuel_type": "Diesel",
+      "transmission_type": "Automatic",
+      "sample_count": 4,
+      "median_historical_price": 3225000.0
+    },
+    "Seltos": {
+      "engine": 1493,
+      "max_power": 113.4,
+      "mileage": 16.8,
+      "seats": 5,
+      "fuel_type": "Petrol",
+      "transmission_type": "Manual",
+      "sample_count": 28,
+      "median_historical_price": 1532500.0
+    }
+  },
+  "Land Rover": {
+    "Rover": {
+      "engine": 2179,
+      "max_power": 187.7,
+      "mileage": 12.6,
+      "seats": 5,
+      "fuel_type": "Diesel",
+      "transmission_type": "Automatic",
+      "sample_count": 51,
+      "median_historical_price": 3400000.0
+    }
+  },
+  "Lexus": {
+    "Es": {
+      "engine": 2487,
+      "max_power": 214.6,
+      "mileage": 22.4,
+      "seats": 5,
+      "fuel_type": "Petrol",
+      "transmission_type": "Automatic",
+      "sample_count": 6,
+      "median_historical_price": 4100000.0
+    },
+    "Nx": {
+      "engine": 2499,
+      "max_power": 194.3,
+      "mileage": 18.3,
+      "seats": 5,
+      "fuel_type": "Petrol",
+      "transmission_type": "Automatic",
+      "sample_count": 2,
+      "median_historical_price": 5450000.0
+    },
+    "Rx": {
+      "engine": 3456,
+      "max_power": 258.9,
+      "mileage": 18.8,
+      "seats": 5,
+      "fuel_type": "Petrol",
+      "transmission_type": "Automatic",
+      "sample_count": 2,
+      "median_historical_price": 7100000.0
+    }
+  },
+  "Mahindra": {
+    "Alturas": {
+      "engine": 2157,
+      "max_power": 178.5,
+      "mileage": 12.0,
+      "seats": 7,
+      "fuel_type": "Diesel",
+      "transmission_type": "Automatic",
+      "sample_count": 3,
+      "median_historical_price": 2500000.0
+    },
+    "Bolero": {
+      "engine": 2523,
+      "max_power": 63.0,
+      "mileage": 16.0,
+      "seats": 7,
+      "fuel_type": "Diesel",
+      "transmission_type": "Manual",
+      "sample_count": 211,
+      "median_historical_price": 525000.0
+    },
+    "Kuv": {
+      "engine": 1198,
+      "max_power": 79.5,
+      "mileage": 21.7,
+      "seats": 6,
+      "fuel_type": "Diesel",
+      "transmission_type": "Manual",
+      "sample_count": 66,
+      "median_historical_price": 419500.0
+    },
+    "Kuv100": {
+      "engine": 1198,
+      "max_power": 77.0,
+      "mileage": 25.3,
+      "seats": 6,
+      "fuel_type": "Diesel",
+      "transmission_type": "Manual",
+      "sample_count": 27,
+      "median_historical_price": 500000.0
+    },
+    "Marazzo": {
+      "engine": 1497,
+      "max_power": 121.0,
+      "mileage": 17.3,
+      "seats": 7,
+      "fuel_type": "Diesel",
+      "transmission_type": "Manual",
+      "sample_count": 24,
+      "median_historical_price": 1070000.0
+    },
+    "Scorpio": {
+      "engine": 2179,
+      "max_power": 120.0,
+      "mileage": 15.4,
+      "seats": 7,
+      "fuel_type": "Diesel",
+      "transmission_type": "Manual",
+      "sample_count": 273,
+      "median_historical_price": 800000.0
+    },
+    "Thar": {
+      "engine": 2498,
+      "max_power": 105.0,
+      "mileage": 16.6,
+      "seats": 6,
+      "fuel_type": "Diesel",
+      "transmission_type": "Manual",
+      "sample_count": 62,
+      "median_historical_price": 830000.0
+    },
+    "Xuv300": {
+      "engine": 1197,
+      "max_power": 110.0,
+      "mileage": 17.0,
+      "seats": 5,
+      "fuel_type": "Petrol",
+      "transmission_type": "Manual",
+      "sample_count": 15,
+      "median_historical_price": 1000000.0
+    },
+    "Xuv500": {
+      "engine": 2179,
+      "max_power": 140.0,
+      "mileage": 15.1,
+      "seats": 7,
+      "fuel_type": "Diesel",
+      "transmission_type": "Manual",
+      "sample_count": 330,
+      "median_historical_price": 945000.0
+    }
+  },
+  "Maruti": {
+    "Alto": {
+      "engine": 796,
+      "max_power": 47.3,
+      "mileage": 22.7,
+      "seats": 5,
+      "fuel_type": "Petrol",
+      "transmission_type": "Manual",
+      "sample_count": 778,
+      "median_historical_price": 250000.0
+    },
+    "Baleno": {
+      "engine": 1197,
+      "max_power": 83.1,
+      "mileage": 21.4,
+      "seats": 5,
+      "fuel_type": "Petrol",
+      "transmission_type": "Manual",
+      "sample_count": 364,
+      "median_historical_price": 640000.0
+    },
+    "Celerio": {
+      "engine": 998,
+      "max_power": 67.0,
+      "mileage": 23.1,
+      "seats": 5,
+      "fuel_type": "Petrol",
+      "transmission_type": "Manual",
+      "sample_count": 237,
+      "median_historical_price": 450000.0
+    },
+    "Ciaz": {
+      "engine": 1310,
+      "max_power": 89.8,
+      "mileage": 26.2,
+      "seats": 5,
+      "fuel_type": "Diesel",
+      "transmission_type": "Manual",
+      "sample_count": 346,
+      "median_historical_price": 710000.0
+    },
+    "Dzire Lxi": {
+      "engine": 1197,
+      "max_power": 88.5,
+      "mileage": 23.3,
+      "seats": 5,
+      "fuel_type": "Petrol",
+      "transmission_type": "Manual",
+      "sample_count": 2,
+      "median_historical_price": 442500.0
+    },
+    "Dzire Vxi": {
+      "engine": 1197,
+      "max_power": 88.5,
+      "mileage": 23.3,
+      "seats": 5,
+      "fuel_type": "Petrol",
+      "transmission_type": "Manual",
+      "sample_count": 17,
+      "median_historical_price": 485000.0
+    },
+    "Dzire Zxi": {
+      "engine": 1197,
+      "max_power": 88.5,
+      "mileage": 23.3,
+      "seats": 5,
+      "fuel_type": "Petrol",
+      "transmission_type": "Manual",
+      "sample_count": 4,
+      "median_historical_price": 500000.0
+    },
+    "Eeco": {
+      "engine": 1196,
+      "max_power": 73.0,
+      "mileage": 15.4,
+      "seats": 5,
+      "fuel_type": "Petrol",
+      "transmission_type": "Manual",
+      "sample_count": 125,
+      "median_historical_price": 349000.0
+    },
+    "Ertiga": {
+      "engine": 1248,
+      "max_power": 88.8,
+      "mileage": 20.8,
+      "seats": 7,
+      "fuel_type": "Diesel",
+      "transmission_type": "Manual",
+      "sample_count": 343,
+      "median_historical_price": 710000.0
+    },
+    "Ignis": {
+      "engine": 1197,
+      "max_power": 81.8,
+      "mileage": 20.9,
+      "seats": 5,
+      "fuel_type": "Petrol",
+      "transmission_type": "Manual",
+      "sample_count": 73,
+      "median_historical_price": 535000.0
+    },
+    "S-Presso": {
+      "engine": 998,
+      "max_power": 67.0,
+      "mileage": 21.7,
+      "seats": 5,
+      "fuel_type": "Petrol",
+      "transmission_type": "Manual",
+      "sample_count": 13,
+      "median_historical_price": 450000.0
+    },
+    "Swift": {
+      "engine": 1248,
+      "max_power": 74.0,
+      "mileage": 22.9,
+      "seats": 5,
+      "fuel_type": "Diesel",
+      "transmission_type": "Manual",
+      "sample_count": 781,
+      "median_historical_price": 465000.0
+    },
+    "Swift Dzire": {
+      "engine": 1248,
+      "max_power": 74.0,
+      "mileage": 21.2,
+      "seats": 5,
+      "fuel_type": "Diesel",
+      "transmission_type": "Manual",
+      "sample_count": 890,
+      "median_historical_price": 523000.0
+    },
+    "Vitara": {
+      "engine": 1248,
+      "max_power": 88.5,
+      "mileage": 24.3,
+      "seats": 5,
+      "fuel_type": "Diesel",
+      "transmission_type": "Manual",
+      "sample_count": 295,
+      "median_historical_price": 825000.0
+    },
+    "Wagon R": {
+      "engine": 998,
+      "max_power": 67.0,
+      "mileage": 20.5,
+      "seats": 5,
+      "fuel_type": "Petrol",
+      "transmission_type": "Manual",
+      "sample_count": 717,
+      "median_historical_price": 319000.0
+    },
+    "Xl6": {
+      "engine": 1462,
+      "max_power": 103.2,
+      "mileage": 19.0,
+      "seats": 6,
+      "fuel_type": "Petrol",
+      "transmission_type": "Manual",
+      "sample_count": 7,
+      "median_historical_price": 1150000.0
+    }
+  },
+  "Maserati": {
+    "Ghibli": {
+      "engine": 2987,
+      "max_power": 271.0,
+      "mileage": 20.4,
+      "seats": 5,
+      "fuel_type": "Diesel",
+      "transmission_type": "Automatic",
+      "sample_count": 1,
+      "median_historical_price": 6200000.0
+    },
+    "Quattroporte": {
+      "engine": 2987,
+      "max_power": 270.9,
+      "mileage": 19.2,
+      "seats": 5,
+      "fuel_type": "Diesel",
+      "transmission_type": "Automatic",
+      "sample_count": 1,
+      "median_historical_price": 6000000.0
+    }
+  },
+  "Mercedes-Amg": {
+    "C": {
+      "engine": 2996,
+      "max_power": 362.1,
+      "mileage": 11.9,
+      "seats": 5,
+      "fuel_type": "Petrol",
+      "transmission_type": "Automatic",
+      "sample_count": 1,
+      "median_historical_price": 5100000.0
+    }
+  },
+  "Mercedes-Benz": {
+    "C-Class": {
+      "engine": 2143,
+      "max_power": 170.0,
+      "mileage": 14.8,
+      "seats": 5,
+      "fuel_type": "Diesel",
+      "transmission_type": "Automatic",
+      "sample_count": 118,
+      "median_historical_price": 1349000.0
+    },
+    "Cls": {
+      "engine": 2143,
+      "max_power": 204.0,
+      "mileage": 19.4,
+      "seats": 4,
+      "fuel_type": "Diesel",
+      "transmission_type": "Automatic",
+      "sample_count": 9,
+      "median_historical_price": 3600000.0
+    },
+    "E-Class": {
+      "engine": 2143,
+      "max_power": 203.0,
+      "mileage": 13.0,
+      "seats": 5,
+      "fuel_type": "Diesel",
+      "transmission_type": "Automatic",
+      "sample_count": 125,
+      "median_historical_price": 1650000.0
+    },
+    "Gl-Class": {
+      "engine": 2987,
+      "max_power": 245.0,
+      "mileage": 11.5,
+      "seats": 7,
+      "fuel_type": "Diesel",
+      "transmission_type": "Automatic",
+      "sample_count": 36,
+      "median_historical_price": 3662500.0
+    },
+    "Gls": {
+      "engine": 2987,
+      "max_power": 258.0,
+      "mileage": 11.0,
+      "seats": 7,
+      "fuel_type": "Diesel",
+      "transmission_type": "Automatic",
+      "sample_count": 12,
+      "median_historical_price": 6950000.0
+    },
+    "S-Class": {
+      "engine": 2987,
+      "max_power": 282.0,
+      "mileage": 13.5,
+      "seats": 5,
+      "fuel_type": "Diesel",
+      "transmission_type": "Automatic",
+      "sample_count": 37,
+      "median_historical_price": 2450000.0
+    }
+  },
+  "Mg": {
+    "Hector": {
+      "engine": 1451,
+      "max_power": 141.0,
+      "mileage": 15.8,
+      "seats": 5,
+      "fuel_type": "Petrol",
+      "transmission_type": "Manual",
+      "sample_count": 19,
+      "median_historical_price": 1750000.0
+    }
+  },
+  "Mini": {
+    "Cooper": {
+      "engine": 1998,
+      "max_power": 181.0,
+      "mileage": 17.3,
+      "seats": 5,
+      "fuel_type": "Petrol",
+      "transmission_type": "Automatic",
+      "sample_count": 17,
+      "median_historical_price": 1800000.0
+    }
+  },
+  "Nissan": {
+    "Kicks": {
+      "engine": 1461,
+      "max_power": 108.0,
+      "mileage": 16.8,
+      "seats": 5,
+      "fuel_type": "Diesel",
+      "transmission_type": "Manual",
+      "sample_count": 8,
+      "median_historical_price": 975000.0
+    },
+    "X-Trail": {
+      "engine": 1995,
+      "max_power": 147.6,
+      "mileage": 14.4,
+      "seats": 5,
+      "fuel_type": "Diesel",
+      "transmission_type": "Manual",
+      "sample_count": 3,
+      "median_historical_price": 595000.0
+    }
+  },
+  "Porsche": {
+    "Cayenne": {
+      "engine": 2967,
+      "max_power": 240.0,
+      "mileage": 14.7,
+      "seats": 5,
+      "fuel_type": "Diesel",
+      "transmission_type": "Automatic",
+      "sample_count": 16,
+      "median_historical_price": 4750000.0
+    },
+    "Macan": {
+      "engine": 1984,
+      "max_power": 250.5,
+      "mileage": 13.6,
+      "seats": 5,
+      "fuel_type": "Petrol",
+      "transmission_type": "Automatic",
+      "sample_count": 2,
+      "median_historical_price": 5985000.0
+    },
+    "Panamera": {
+      "engine": 4806,
+      "max_power": 394.3,
+      "mileage": 7.5,
+      "seats": 4,
+      "fuel_type": "Diesel",
+      "transmission_type": "Automatic",
+      "sample_count": 3,
+      "median_historical_price": 4875000.0
+    }
+  },
+  "Renault": {
+    "Duster": {
+      "engine": 1461,
+      "max_power": 83.8,
+      "mileage": 19.9,
+      "seats": 5,
+      "fuel_type": "Diesel",
+      "transmission_type": "Manual",
+      "sample_count": 218,
+      "median_historical_price": 550000.0
+    },
+    "Kwid": {
+      "engine": 999,
+      "max_power": 67.0,
+      "mileage": 24.0,
+      "seats": 5,
+      "fuel_type": "Petrol",
+      "transmission_type": "Manual",
+      "sample_count": 306,
+      "median_historical_price": 345000.0
+    },
+    "Triber": {
+      "engine": 999,
+      "max_power": 72.0,
+      "mileage": 20.0,
+      "seats": 7,
+      "fuel_type": "Petrol",
+      "transmission_type": "Manual",
+      "sample_count": 12,
+      "median_historical_price": 657000.0
+    }
+  },
+  "Rolls-Royce": {
+    "Ghost": {
+      "engine": 6592,
+      "max_power": 563.0,
+      "mileage": 10.2,
+      "seats": 4,
+      "fuel_type": "Petrol",
+      "transmission_type": "Automatic",
+      "sample_count": 1,
+      "median_historical_price": 24200000.0
+    }
+  },
+  "Skoda": {
+    "Octavia": {
+      "engine": 1896,
+      "max_power": 141.0,
+      "mileage": 18.7,
+      "seats": 5,
+      "fuel_type": "Diesel",
+      "transmission_type": "Automatic",
+      "sample_count": 59,
+      "median_historical_price": 1150000.0
+    },
+    "Rapid": {
+      "engine": 1598,
+      "max_power": 103.5,
+      "mileage": 20.5,
+      "seats": 5,
+      "fuel_type": "Diesel",
+      "transmission_type": "Manual",
+      "sample_count": 182,
+      "median_historical_price": 525000.0
+    },
+    "Superb": {
+      "engine": 1798,
+      "max_power": 157.8,
+      "mileage": 13.7,
+      "seats": 5,
+      "fuel_type": "Petrol",
+      "transmission_type": "Automatic",
+      "sample_count": 93,
+      "median_historical_price": 649000.0
+    }
+  },
+  "Tata": {
+    "Altroz": {
+      "engine": 1199,
+      "max_power": 84.8,
+      "mileage": 19.0,
+      "seats": 5,
+      "fuel_type": "Petrol",
+      "transmission_type": "Manual",
+      "sample_count": 1,
+      "median_historical_price": 730000.0
+    },
+    "Harrier": {
+      "engine": 1956,
+      "max_power": 138.1,
+      "mileage": 17.0,
+      "seats": 5,
+      "fuel_type": "Diesel",
+      "transmission_type": "Manual",
+      "sample_count": 21,
+      "median_historical_price": 1650000.0
+    },
+    "Hexa": {
+      "engine": 2179,
+      "max_power": 153.9,
+      "mileage": 17.6,
+      "seats": 7,
+      "fuel_type": "Diesel",
+      "transmission_type": "Manual",
+      "sample_count": 41,
+      "median_historical_price": 1300000.0
+    },
+    "Nexon": {
+      "engine": 1497,
+      "max_power": 108.5,
+      "mileage": 21.5,
+      "seats": 5,
+      "fuel_type": "Diesel",
+      "transmission_type": "Manual",
+      "sample_count": 85,
+      "median_historical_price": 821000.0
+    },
+    "Safari": {
+      "engine": 2179,
+      "max_power": 138.1,
+      "mileage": 14.0,
+      "seats": 7,
+      "fuel_type": "Diesel",
+      "transmission_type": "Manual",
+      "sample_count": 100,
+      "median_historical_price": 487500.0
+    },
+    "Tiago": {
+      "engine": 1199,
+      "max_power": 84.0,
+      "mileage": 23.8,
+      "seats": 5,
+      "fuel_type": "Petrol",
+      "transmission_type": "Manual",
+      "sample_count": 145,
+      "median_historical_price": 450000.0
+    },
+    "Tigor": {
+      "engine": 1199,
+      "max_power": 84.0,
+      "mileage": 20.3,
+      "seats": 5,
+      "fuel_type": "Petrol",
+      "transmission_type": "Manual",
+      "sample_count": 37,
+      "median_historical_price": 550000.0
+    }
+  },
+  "Toyota": {
+    "Camry": {
+      "engine": 2494,
+      "max_power": 164.7,
+      "mileage": 19.2,
+      "seats": 5,
+      "fuel_type": "Petrol",
+      "transmission_type": "Automatic",
+      "sample_count": 36,
+      "median_historical_price": 1762500.0
+    },
+    "Fortuner": {
+      "engine": 2982,
+      "max_power": 171.0,
+      "mileage": 12.6,
+      "seats": 7,
+      "fuel_type": "Diesel",
+      "transmission_type": "Manual",
+      "sample_count": 187,
+      "median_historical_price": 1600000.0
+    },
+    "Glanza": {
+      "engine": 1197,
+      "max_power": 81.8,
+      "mileage": 21.0,
+      "seats": 5,
+      "fuel_type": "Petrol",
+      "transmission_type": "Manual",
+      "sample_count": 8,
+      "median_historical_price": 828500.0
+    },
+    "Innova": {
+      "engine": 2494,
+      "max_power": 102.0,
+      "mileage": 13.0,
+      "seats": 7,
+      "fuel_type": "Diesel",
+      "transmission_type": "Manual",
+      "sample_count": 545,
+      "median_historical_price": 1100000.0
+    },
+    "Yaris": {
+      "engine": 1496,
+      "max_power": 105.5,
+      "mileage": 17.8,
+      "seats": 5,
+      "fuel_type": "Petrol",
+      "transmission_type": "Automatic",
+      "sample_count": 17,
+      "median_historical_price": 1000000.0
+    }
+  },
+  "Volkswagen": {
+    "Polo": {
+      "engine": 1199,
+      "max_power": 75.0,
+      "mileage": 17.2,
+      "seats": 5,
+      "fuel_type": "Petrol",
+      "transmission_type": "Manual",
+      "sample_count": 373,
+      "median_historical_price": 510000.0
+    },
+    "Vento": {
+      "engine": 1598,
+      "max_power": 103.6,
+      "mileage": 20.3,
+      "seats": 5,
+      "fuel_type": "Diesel",
+      "transmission_type": "Manual",
+      "sample_count": 247,
+      "median_historical_price": 480000.0
+    }
+  },
+  "Volvo": {
+    "S90": {
+      "engine": 1969,
+      "max_power": 190.0,
+      "mileage": 18.0,
+      "seats": 5,
+      "fuel_type": "Diesel",
+      "transmission_type": "Automatic",
+      "sample_count": 4,
+      "median_historical_price": 4175000.0
+    },
+    "Xc": {
+      "engine": 2400,
+      "max_power": 200.0,
+      "mileage": 11.1,
+      "seats": 7,
+      "fuel_type": "Diesel",
+      "transmission_type": "Automatic",
+      "sample_count": 7,
+      "median_historical_price": 2450000.0
+    },
+    "Xc60": {
+      "engine": 1985,
+      "max_power": 181.0,
+      "mileage": 14.7,
+      "seats": 5,
+      "fuel_type": "Diesel",
+      "transmission_type": "Automatic",
+      "sample_count": 5,
+      "median_historical_price": 1600000.0
+    },
+    "Xc90": {
+      "engine": 1969,
+      "max_power": 235.0,
+      "mileage": 17.2,
+      "seats": 7,
+      "fuel_type": "Diesel",
+      "transmission_type": "Automatic",
+      "sample_count": 4,
+      "median_historical_price": 4924500.0
+    }
+  }
+}

@@ -1,0 +1,228 @@
+{% extends "base.html" %}
+
+{% block title %}Developer REST API Reference | AutoValuate AI{% endblock %}
+
+{% block content %}
+<div class="api-container">
+    <section class="api-header">
+        <div class="ah-badge">AUTOMOTIVE INFERENCE REST API v2</div>
+        <h1 class="ah-title">Programmatic Valuation API</h1>
+        <p class="ah-desc">Integrate real-time used vehicle valuations, spec lookups, and depreciation curves into dealership CRMs, financing portals, or automotive classifieds.</p>
+    </section>
+
+    <div class="api-layout">
+        <!-- Sidebar Navigation -->
+        <nav class="api-sidebar">
+            <div class="api-sidebar-group">
+                <span class="asg-title">Core Endpoints</span>
+                <a href="#predict-endpoint" class="api-nav-link active">POST /api/predict</a>
+                <a href="#catalog-endpoint" class="api-nav-link">GET /api/catalog</a>
+                <a href="#specs-endpoint" class="api-nav-link">GET /api/specs-lookup</a>
+                <a href="#metrics-endpoint" class="api-nav-link">GET /api/model-metrics</a>
+                <a href="#health-endpoint" class="api-nav-link">GET /api/health</a>
+            </div>
+            <div class="api-sidebar-group">
+                <span class="asg-title">Guides</span>
+                <a href="#authentication" class="api-nav-link">Authentication & Rate Limits</a>
+                <a href="#error-codes" class="api-nav-link">Status & Error Responses</a>
+            </div>
+        </nav>
+
+        <!-- Main API Content -->
+        <div class="api-content">
+            <!-- Endpoint: POST /api/predict -->
+            <article class="api-endpoint-card" id="predict-endpoint">
+                <div class="ep-header">
+                    <span class="http-badge post">POST</span>
+                    <span class="ep-route">/api/predict</span>
+                    <span class="ep-badge">Primary Endpoint</span>
+                </div>
+                <p class="ep-desc">Computes the estimated market value, channel pricing splits, and a 10-year depreciation trajectory for a specified vehicle configuration.</p>
+
+                <h4 class="ep-subhead">Request Headers</h4>
+                <div class="code-box">
+                    <pre><code>Content-Type: application/json
+Accept: application/json</code></pre>
+                </div>
+
+                <h4 class="ep-subhead">Request Payload (JSON)</h4>
+                <div class="table-responsive">
+                    <table class="params-table">
+                        <thead>
+                            <tr>
+                                <th>Field</th>
+                                <th>Type</th>
+                                <th>Required</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>brand</code></td>
+                                <td>string</td>
+                                <td>Yes</td>
+                                <td>Manufacturer name (e.g., <code>"Maruti"</code>, <code>"Tata"</code>, <code>"Hyundai"</code>)</td>
+                            </tr>
+                            <tr>
+                                <td><code>model</code></td>
+                                <td>string</td>
+                                <td>Yes</td>
+                                <td>Model nameplate (e.g., <code>"Swift"</code>, <code>"Safari"</code>, <code>"Creta"</code>)</td>
+                            </tr>
+                            <tr>
+                                <td><code>vehicle_age</code></td>
+                                <td>integer</td>
+                                <td>Yes</td>
+                                <td>Age of the vehicle in years (1 to 20)</td>
+                            </tr>
+                            <tr>
+                                <td><code>km_driven</code></td>
+                                <td>integer</td>
+                                <td>Yes</td>
+                                <td>Odometer kilometers driven (500 to 300,000)</td>
+                            </tr>
+                            <tr>
+                                <td><code>fuel_type</code></td>
+                                <td>string</td>
+                                <td>Yes</td>
+                                <td><code>"Petrol"</code> | <code>"Diesel"</code> | <code>"CNG"</code> | <code>"Electric"</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>transmission_type</code></td>
+                                <td>string</td>
+                                <td>Yes</td>
+                                <td><code>"Manual"</code> | <code>"Automatic"</code></td>
+                            </tr>
+                            <tr>
+                                <td><code>seller_type</code></td>
+                                <td>string</td>
+                                <td>No</td>
+                                <td><code>"Individual"</code> | <code>"Dealer"</code> | <code>"Trustmark Dealer"</code> (Default: <code>"Individual"</code>)</td>
+                            </tr>
+                            <tr>
+                                <td><code>engine</code></td>
+                                <td>integer</td>
+                                <td>Yes</td>
+                                <td>Displacement in cubic centimeters (CC, e.g. <code>1197</code>)</td>
+                            </tr>
+                            <tr>
+                                <td><code>max_power</code></td>
+                                <td>float</td>
+                                <td>Yes</td>
+                                <td>Output power in brake horsepower (bhp, e.g. <code>82.0</code>)</td>
+                            </tr>
+                            <tr>
+                                <td><code>mileage</code></td>
+                                <td>float</td>
+                                <td>Yes</td>
+                                <td>Fuel economy in kmpl (e.g. <code>21.2</code>)</td>
+                            </tr>
+                            <tr>
+                                <td><code>seats</code></td>
+                                <td>integer</td>
+                                <td>No</td>
+                                <td>Passenger seat count (Default: <code>5</code>)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h4 class="ep-subhead">Example cURL Request</h4>
+                <div class="code-box">
+                    <pre><code>curl -X POST http://127.0.0.1:5000/api/predict \
+  -H "Content-Type: application/json" \
+  -d '{
+    "brand": "Tata",
+    "model": "Safari",
+    "vehicle_age": 3,
+    "km_driven": 40000,
+    "fuel_type": "Diesel",
+    "transmission_type": "Manual",
+    "seller_type": "Individual",
+    "engine": 2179,
+    "max_power": 138.1,
+    "mileage": 14.0,
+    "seats": 7
+  }'</code></pre>
+                </div>
+
+                <h4 class="ep-subhead">Sample JSON Response (200 OK)</h4>
+                <div class="code-box">
+                    <pre><code>{
+  "status": "success",
+  "valuation_id": "VAL-2026-981245",
+  "timestamp": "2026-10-10T09:30:00Z",
+  "raw_price": 1450000,
+  "formatted_price": "₹ 14.50 Lakhs",
+  "price_range": {
+    "low": 1392000,
+    "high": 1508000,
+    "low_formatted": "₹ 13.92 L",
+    "high_formatted": "₹ 15.08 L",
+    "margin_pct": 4.0
+  },
+  "channels": {
+    "private_party": {
+      "price": 1479000,
+      "formatted": "₹ 14.79 L",
+      "description": "Direct peer-to-peer sale"
+    },
+    "trade_in": {
+      "price": 1276000,
+      "formatted": "₹ 12.76 L",
+      "description": "Instant dealer cash liquidation"
+    },
+    "retail": {
+      "price": 1595000,
+      "formatted": "₹ 15.95 L",
+      "description": "Certified showroom list price"
+    }
+  },
+  "depreciation_curve": [
+    {"age": 1, "projected_price": 1820000},
+    {"age": 2, "projected_price": 1610000},
+    {"age": 3, "projected_price": 1450000, "current": true},
+    {"age": 4, "projected_price": 1310000},
+    {"age": 5, "projected_price": 1190000},
+    {"age": 6, "projected_price": 1080000},
+    {"age": 7, "projected_price": 990000},
+    {"age": 8, "projected_price": 910000},
+    {"age": 9, "projected_price": 840000},
+    {"age": 10, "projected_price": 780000}
+  ]
+}</code></pre>
+                </div>
+            </article>
+
+            <!-- Endpoint: GET /api/specs-lookup -->
+            <article class="api-endpoint-card" id="specs-endpoint">
+                <div class="ep-header">
+                    <span class="http-badge get">GET</span>
+                    <span class="ep-route">/api/specs-lookup</span>
+                </div>
+                <p class="ep-desc">Returns typical OEM factory technical specifications (engine, bhp, mileage, seats) indexed across 31 brands and models.</p>
+                <div class="code-box">
+                    <pre><code>curl -X GET "http://127.0.0.1:5000/api/specs-lookup?brand=Maruti&model=Swift"</code></pre>
+                </div>
+            </article>
+
+            <!-- Endpoint: GET /api/health -->
+            <article class="api-endpoint-card" id="health-endpoint">
+                <div class="ep-header">
+                    <span class="http-badge get">GET</span>
+                    <span class="ep-route">/api/health</span>
+                </div>
+                <p class="ep-desc">Service liveness check and model pipeline initialization status.</p>
+                <div class="code-box">
+                    <pre><code>{
+  "status": "healthy",
+  "model_loaded": true,
+  "model_type": "RandomForestRegressor(150 trees)",
+  "catalog_brands_count": 31
+}</code></pre>
+                </div>
+            </article>
+        </div>
+    </div>
+</div>
+{% endblock %}

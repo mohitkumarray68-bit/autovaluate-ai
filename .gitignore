@@ -1,0 +1,22 @@
+# Virtual Environment
+venv/
+env/
+ENV/
+
+# Python Cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# System & IDE files
+.vscode/
+.idea/
+*.lnk
+*.log
+tunnel_log.txt
+share_link.txt
+cloudflared.exe
+
+# Raw training data (not needed for inference since model is already trained)
+data/used_cars.csv

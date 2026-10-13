@@ -1,0 +1,446 @@
+{% extends "base.html" %}
+
+{% block title %}AutoValuate AI | Production Automotive Valuation Studio{% endblock %}
+
+{% block content %}
+<div class="studio-container">
+    <!-- Hero Banner with Presets -->
+    <section class="studio-hero">
+        <div class="hero-content">
+            <div class="hero-badge-wrap">
+                <span class="hero-pill">MULTI-BRAND MACHINE LEARNING VALUATION</span>
+                <span class="hero-updated">Trained on 15,244 Verified Indian Car Sales</span>
+            </div>
+            <h1 class="hero-title">Accurate Fair Market Car Valuation in Seconds</h1>
+            <p class="hero-desc">Powered by an ensemble Random Forest regressor with non-linear powertrain modeling, odometer degradation, and real-time OEM spec cross-referencing.</p>
+            
+            <!-- Quick Vehicle Presets -->
+            <div class="presets-container">
+                <span class="presets-label">Popular Benchmarks:</span>
+                <div class="presets-scroll" id="presetsList">
+                    <button type="button" class="preset-chip active" data-preset="swift">
+                        <span class="preset-name">Maruti Swift (4y)</span>
+                        <span class="preset-spec">Petrol • 42k km</span>
+                    </button>
+                    <button type="button" class="preset-chip" data-preset="creta">
+                        <span class="preset-name">Hyundai Creta (3y)</span>
+                        <span class="preset-spec">Diesel • 35k km</span>
+                    </button>
+                    <button type="button" class="preset-chip" data-preset="safari">
+                        <span class="preset-name">Tata Safari (3y)</span>
+                        <span class="preset-spec">Diesel • 40k km</span>
+                    </button>
+                    <button type="button" class="preset-chip" data-preset="fortuner">
+                        <span class="preset-name">Toyota Fortuner (5y)</span>
+                        <span class="preset-spec">Diesel Auto • 65k km</span>
+                    </button>
+                    <button type="button" class="preset-chip" data-preset="city">
+                        <span class="preset-name">Honda City (4y)</span>
+                        <span class="preset-spec">Petrol • 38k km</span>
+                    </button>
+                    <button type="button" class="preset-chip" data-preset="bmw3">
+                        <span class="preset-name">BMW 3-Series (6y)</span>
+                        <span class="preset-spec">Luxury Sedan • 50k km</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Workspace Grid -->
+    <div class="workspace-grid">
+        <!-- Left Column: Vehicle Configurator Form -->
+        <section class="configurator-card" aria-label="Vehicle Specification Form">
+            <div class="card-header">
+                <div class="ch-left">
+                    <h2 class="ch-title">Vehicle Specifications</h2>
+                    <p class="ch-sub">Configure vehicle parameters or choose OEM factory presets</p>
+                </div>
+                <button type="button" class="btn-text-action" id="btnResetDefaults" title="Restore typical specifications for selected model">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M3 21v-5h5"/></svg>
+                    <span>Auto-Fill Specs</span>
+                </button>
+            </div>
+
+            <form id="valuationForm" class="valuation-form">
+                <!-- Step 1: Vehicle Identity -->
+                <div class="form-section">
+                    <div class="section-title-wrap">
+                        <span class="section-step">1</span>
+                        <h3 class="section-title">Identity & Make</h3>
+                    </div>
+
+                    <div class="form-row-2">
+                        <div class="field-group">
+                            <label for="brandSelect" class="field-label">Manufacturer Brand</label>
+                            <div class="select-wrapper">
+                                <select id="brandSelect" name="brand" class="field-select" required>
+                                    {% for b in brands %}
+                                    <option value="{{ b }}" {% if b == 'Maruti' %}selected{% endif %}>{{ b }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="field-group">
+                            <label for="modelSelect" class="field-label">Model Variant</label>
+                            <div class="select-wrapper">
+                                <select id="modelSelect" name="model" class="field-select" required>
+                                    <!-- Populated via JS -->
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="spec-autofill-notification" id="autofillNotice">
+                        <span class="notice-icon">✓</span>
+                        <span class="notice-text" id="autofillText">OEM factory baseline loaded for selected vehicle.</span>
+                    </div>
+
+                    <div class="form-row-2">
+                        <div class="field-group">
+                            <div class="label-with-val">
+                                <label for="vehicleAgeInput" class="field-label">Vehicle Age (Years)</label>
+                                <span class="val-badge" id="ageBadge">4 yrs (Reg. 2022)</span>
+                            </div>
+                            <div class="range-field">
+                                <input type="range" id="vehicleAgeSlider" min="1" max="18" value="4" class="custom-slider" step="1">
+                                <input type="number" id="vehicleAgeInput" name="vehicle_age" min="1" max="18" value="4" class="number-input-compact" required>
+                            </div>
+                        </div>
+
+                        <div class="field-group">
+                            <label class="field-label">Seller Channel</label>
+                            <div class="segmented-control" role="radiogroup">
+                                <label class="seg-option">
+                                    <input type="radio" name="seller_type" value="Individual" checked>
+                                    <span>Individual</span>
+                                </label>
+                                <label class="seg-option">
+                                    <input type="radio" name="seller_type" value="Dealer">
+                                    <span>Dealer</span>
+                                </label>
+                                <label class="seg-option">
+                                    <input type="radio" name="seller_type" value="Trustmark Dealer">
+                                    <span>Trustmark</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 2: Usage & Mileage -->
+                <div class="form-section">
+                    <div class="section-title-wrap">
+                        <span class="section-step">2</span>
+                        <h3 class="section-title">Usage & Drivetrain</h3>
+                    </div>
+
+                    <div class="field-group">
+                        <div class="label-with-val">
+                            <label for="kmDrivenInput" class="field-label">Odometer Reading (KM Driven)</label>
+                            <span class="val-badge highlight" id="kmBadge">42,000 km</span>
+                        </div>
+                        <div class="range-field">
+                            <input type="range" id="kmDrivenSlider" min="1000" max="250000" step="1000" value="42000" class="custom-slider">
+                            <input type="number" id="kmDrivenInput" name="km_driven" min="500" max="400000" step="500" value="42000" class="number-input-compact" required>
+                        </div>
+                        <div class="km-preset-pills">
+                            <button type="button" class="btn-micro-chip" data-km="15000">15k (Low)</button>
+                            <button type="button" class="btn-micro-chip" data-km="40000">40k (Avg)</button>
+                            <button type="button" class="btn-micro-chip" data-km="75000">75k (High)</button>
+                            <button type="button" class="btn-micro-chip" data-km="120000">120k+ (Heavy)</button>
+                        </div>
+                    </div>
+
+                    <div class="form-row-2">
+                        <div class="field-group">
+                            <label class="field-label">Fuel Category</label>
+                            <div class="segmented-control" role="radiogroup" id="fuelGroup">
+                                <label class="seg-option">
+                                    <input type="radio" name="fuel_type" value="Petrol" checked>
+                                    <span>Petrol</span>
+                                </label>
+                                <label class="seg-option">
+                                    <input type="radio" name="fuel_type" value="Diesel">
+                                    <span>Diesel</span>
+                                </label>
+                                <label class="seg-option">
+                                    <input type="radio" name="fuel_type" value="CNG">
+                                    <span>CNG</span>
+                                </label>
+                                <label class="seg-option">
+                                    <input type="radio" name="fuel_type" value="Electric">
+                                    <span>EV</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="field-group">
+                            <label class="field-label">Transmission</label>
+                            <div class="segmented-control" role="radiogroup" id="transGroup">
+                                <label class="seg-option">
+                                    <input type="radio" name="transmission_type" value="Manual" checked>
+                                    <span>Manual</span>
+                                </label>
+                                <label class="seg-option">
+                                    <input type="radio" name="transmission_type" value="Automatic">
+                                    <span>Automatic</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 3: Powertrain & Technical Specs -->
+                <div class="form-section">
+                    <div class="section-title-wrap">
+                        <span class="section-step">3</span>
+                        <h3 class="section-title">Engine & Powertrain Details</h3>
+                    </div>
+
+                    <div class="form-row-4">
+                        <div class="field-group">
+                            <label for="engineInput" class="field-label">Engine (CC)</label>
+                            <div class="input-with-unit">
+                                <input type="number" id="engineInput" name="engine" value="1197" min="600" max="6000" step="1" class="field-input" required>
+                                <span class="unit-tag">CC</span>
+                            </div>
+                            <span class="field-hint" id="engineHint">Median: 1197 CC</span>
+                        </div>
+
+                        <div class="field-group">
+                            <label for="maxPowerInput" class="field-label">Power (bhp)</label>
+                            <div class="input-with-unit">
+                                <input type="number" id="maxPowerInput" name="max_power" value="82.0" min="30" max="700" step="0.1" class="field-input" required>
+                                <span class="unit-tag">bhp</span>
+                            </div>
+                            <span class="field-hint" id="powerHint">Median: 82 bhp</span>
+                        </div>
+
+                        <div class="field-group">
+                            <label for="mileageInput" class="field-label">Mileage (kmpl)</label>
+                            <div class="input-with-unit">
+                                <input type="number" id="mileageInput" name="mileage" value="21.2" min="4" max="40" step="0.1" class="field-input" required>
+                                <span class="unit-tag">kmpl</span>
+                            </div>
+                            <span class="field-hint" id="mileageHint">Median: 21.2</span>
+                        </div>
+
+                        <div class="field-group">
+                            <label for="seatsSelect" class="field-label">Seating</label>
+                            <div class="select-wrapper">
+                                <select id="seatsSelect" name="seats" class="field-select">
+                                    <option value="4">4 Seater</option>
+                                    <option value="5" selected>5 Seater</option>
+                                    <option value="7">7 Seater</option>
+                                    <option value="8">8 Seater</option>
+                                </select>
+                            </div>
+                            <span class="field-hint">Cabin layout</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Submission CTA -->
+                <div class="form-actions">
+                    <button type="submit" class="btn-calculate" id="btnCalculate">
+                        <span class="btn-text">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                            Compute Fair Market Valuation
+                        </span>
+                        <span class="btn-loader" style="display: none;">
+                            <span class="spinner"></span> Running RF Ensemble Inference...
+                        </span>
+                    </button>
+                    <div class="shortcut-tip">Press <kbd>Ctrl</kbd> + <kbd>Enter</kbd> to recalculate instantly</div>
+                </div>
+            </form>
+        </section>
+
+        <!-- Right Column: Valuation Dashboard & Analytics -->
+        <section class="results-column" aria-label="Valuation Results">
+            <!-- Valuation Hero Card -->
+            <div class="valuation-card" id="valuationHeroCard">
+                <div class="vc-top-bar">
+                    <div class="vc-status">
+                        <span class="live-pulse"></span>
+                        <span class="vc-status-text">OFFICIAL MARKET VALUATION</span>
+                    </div>
+                    <span class="vc-confidence" id="confidenceIntervalLabel">±4.2% Estimated Error Margin</span>
+                </div>
+
+                <div class="vc-main-price">
+                    <div class="price-eyebrow">Fair Market Selling Price</div>
+                    <div class="price-hero" id="heroFormattedPrice">₹ 5.31 Lakhs</div>
+                    <div class="price-raw" id="heroRawPrice">Exact Model Estimate: ₹ 5,31,366</div>
+                </div>
+
+                <div class="vc-range-bar">
+                    <div class="range-labels">
+                        <span class="rl-low" id="rangeLowText">Min: ₹ 5.09 L</span>
+                        <span class="rl-target">Fair Value</span>
+                        <span class="rl-high" id="rangeHighText">Max: ₹ 5.53 L</span>
+                    </div>
+                    <div class="range-meter">
+                        <div class="meter-bar">
+                            <div class="meter-fill" style="width: 50%;"></div>
+                            <div class="meter-indicator" style="left: 50%;"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3-Channel Split Comparison -->
+                <div class="channels-grid">
+                    <div class="channel-card">
+                        <div class="cc-tag">Trade-In Offer</div>
+                        <div class="cc-price" id="channelTradeIn">₹ 4.68 L</div>
+                        <div class="cc-desc">Instant Cash Liquidation</div>
+                    </div>
+
+                    <div class="channel-card highlight">
+                        <div class="cc-tag">Private Party</div>
+                        <div class="cc-price" id="channelPrivate">₹ 5.42 L</div>
+                        <div class="cc-desc">Direct Buyer Transaction</div>
+                    </div>
+
+                    <div class="channel-card">
+                        <div class="cc-tag">Retail Showroom</div>
+                        <div class="cc-price" id="channelRetail">₹ 5.85 L</div>
+                        <div class="cc-desc">Certified Dealer List Price</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Depreciation Forecast Chart -->
+            <div class="panel-card">
+                <div class="panel-header">
+                    <div>
+                        <h3 class="panel-title">10-Year Value Depreciation Curve</h3>
+                        <p class="panel-subtitle">Estimated market price progression based on age & mileage trajectory</p>
+                    </div>
+                    <span class="chart-badge" id="deprecRateBadge">-14.2% / year</span>
+                </div>
+                <div class="chart-container">
+                    <canvas id="depreciationChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Value Drivers Breakdown & Factors -->
+            <div class="panel-card">
+                <div class="panel-header">
+                    <div>
+                        <h3 class="panel-title">Key Valuation Impact Drivers</h3>
+                        <p class="panel-subtitle">How specific vehicle attributes moved the baseline pricing</p>
+                    </div>
+                </div>
+                <div class="drivers-list" id="driversList">
+                    <div class="driver-row">
+                        <div class="dr-info">
+                            <span class="dr-title">Max Power (Horsepower)</span>
+                            <span class="dr-spec" id="driverPowerSpec">82.0 bhp</span>
+                        </div>
+                        <div class="dr-meter-wrap">
+                            <div class="dr-progress positive" style="width: 68%;"></div>
+                        </div>
+                        <span class="dr-impact pos" id="driverPowerImpact">+ High Value Engine</span>
+                    </div>
+
+                    <div class="driver-row">
+                        <div class="dr-info">
+                            <span class="dr-title">Vehicle Age (Depreciation)</span>
+                            <span class="dr-spec" id="driverAgeSpec">4 Years Old</span>
+                        </div>
+                        <div class="dr-meter-wrap">
+                            <div class="dr-progress negative" style="width: 45%;"></div>
+                        </div>
+                        <span class="dr-impact neg" id="driverAgeImpact">-28% Depreciation</span>
+                    </div>
+
+                    <div class="driver-row">
+                        <div class="dr-info">
+                            <span class="dr-title">Odometer (Wear & Tear)</span>
+                            <span class="dr-spec" id="driverKmSpec">42,000 km</span>
+                        </div>
+                        <div class="dr-meter-wrap">
+                            <div class="dr-progress neutral" style="width: 35%;"></div>
+                        </div>
+                        <span class="dr-impact" id="driverKmImpact">Moderate Wear</span>
+                    </div>
+
+                    <div class="driver-row">
+                        <div class="dr-info">
+                            <span class="dr-title">Fuel Economy Efficiency</span>
+                            <span class="dr-spec" id="driverMileageSpec">21.2 kmpl</span>
+                        </div>
+                        <div class="dr-meter-wrap">
+                            <div class="dr-progress positive" style="width: 80%;"></div>
+                        </div>
+                        <span class="dr-impact pos" id="driverMileageImpact">Economy Advantage</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Financing & Loan EMI Calculator -->
+            <div class="panel-card">
+                <div class="panel-header">
+                    <div>
+                        <h3 class="panel-title">Financing & Auto Loan Estimator</h3>
+                        <p class="panel-subtitle">Estimated monthly EMI for buyers based on this market price</p>
+                    </div>
+                    <div class="emi-result-pill">
+                        <span class="emi-label">Estimated EMI:</span>
+                        <span class="emi-amount" id="emiDisplay">₹ 9,850/mo</span>
+                    </div>
+                </div>
+
+                <div class="emi-controls">
+                    <div class="emi-field">
+                        <div class="emi-label-row">
+                            <span>Down Payment</span>
+                            <span class="emi-val-text" id="downPaymentText">20% (₹ 1,06,000)</span>
+                        </div>
+                        <input type="range" id="downPaymentSlider" min="10" max="60" value="20" step="5" class="custom-slider">
+                    </div>
+
+                    <div class="emi-field">
+                        <div class="emi-label-row">
+                            <span>Loan Tenure</span>
+                            <span class="emi-val-text" id="tenureText">48 Months (4 Years)</span>
+                        </div>
+                        <input type="range" id="tenureSlider" min="12" max="84" value="48" step="12" class="custom-slider">
+                    </div>
+
+                    <div class="emi-field">
+                        <div class="emi-label-row">
+                            <span>Interest Rate (p.a.)</span>
+                            <span class="emi-val-text" id="rateText">9.5%</span>
+                        </div>
+                        <input type="range" id="rateSlider" min="7.5" max="15.0" value="9.5" step="0.25" class="custom-slider">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Actions -->
+            <div class="studio-bottom-actions">
+                <button type="button" class="btn-outline-action" id="btnOpenCertModal">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                    <span>Appraisal Certificate</span>
+                </button>
+                <button type="button" class="btn-outline-action btn-action-share" id="btnShareValuation">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+                    <span>Share Valuation Link</span>
+                </button>
+                <button type="button" class="btn-outline-action" id="btnCopyReport">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                    <span>Copy Summary</span>
+                </button>
+            </div>
+        </section>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_scripts %}
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}AutoValuate AI | Enterprise Automotive Valuation Engine{% endblock %}</title>
+    <meta name="description" content="Production-grade AI vehicle valuation platform powered by multi-brand ensemble machine learning trained on verified Indian automotive transactions.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='images/app_icon.ico') }}">
+
+    <!-- Application Stylesheet -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    {% block extra_head %}{% endblock %}
+</head>
+<body class="theme-dark">
+    <!-- Top Navigation Bar -->
+    <header class="app-header">
+        <div class="header-container">
+            <div class="brand-group">
+                <a href="/" class="brand-logo">
+                    <div class="logo-mark">
+                        <span class="logo-icon">▲</span>
+                    </div>
+                    <div class="logo-text">
+                        <span class="logo-title">AUTO<span class="accent-text">VALUATE</span></span>
+                        <span class="logo-badge">INTELLIGENCE</span>
+                    </div>
+                </a>
+                <div class="header-status-pill">
+                    <span class="status-dot"></span>
+                    <span class="status-label">Model RF-150 Online</span>
+                    <span class="status-metric">R² 0.921</span>
+                </div>
+            </div>
+
+            <nav class="nav-links">
+                <a href="/" class="nav-link {% if active_page == 'home' %}active{% endif %}" id="nav-valuation">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                    <span>Valuation Studio</span>
+                </a>
+                <a href="/analytics" class="nav-link {% if active_page == 'analytics' %}active{% endif %}" id="nav-analytics">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
+                    <span>Market Intelligence</span>
+                </a>
+                <a href="/api-docs" class="nav-link {% if active_page == 'api_docs' %}active{% endif %}" id="nav-api">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                    <span>API Reference</span>
+                </a>
+            </nav>
+
+            <div class="header-actions">
+                <button type="button" class="btn-share-header" id="btnShareAppHeader" aria-label="Share Website" title="Share AutoValuate AI Link">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+                    <span>Share Link</span>
+                </button>
+                <button type="button" class="btn-theme-toggle" id="themeToggle" aria-label="Toggle Theme" title="Toggle Light/Dark Theme">
+                    <svg class="sun-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+                    <svg class="moon-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                </button>
+                <div class="tx-counter-badge" title="Trained on 15,244 verified automobile transactions">
+                    <span class="tx-num">15.2k+</span>
+                    <span class="tx-label">Verified Comps</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="main-wrapper">
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Appraisal Certificate Modal -->
+    <div class="modal-overlay" id="certificateModal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="certificate-document" id="printableCertificate">
+                <div class="cert-header">
+                    <div class="cert-brand">
+                        <span class="cert-logo">▲ AUTOVALUATE CERTIFIED APPRAISAL</span>
+                        <span class="cert-id" id="certValuationId">VAL-2026-000000</span>
+                    </div>
+                    <div class="cert-meta">
+                        <span class="cert-date" id="certDate">October 10, 2026</span>
+                        <span class="cert-seal">VERIFIED BY AI ENSEMBLE</span>
+                    </div>
+                </div>
+
+                <div class="cert-body">
+                    <div class="cert-title-section">
+                        <h2 class="cert-vehicle-name" id="certVehicleTitle">Maruti Swift VXi</h2>
+                        <p class="cert-vehicle-subtitle" id="certVehicleSubtitle">4 Years Old • 42,000 km • Petrol • Manual Transmission</p>
+                    </div>
+
+                    <div class="cert-pricing-grid">
+                        <div class="cert-price-card primary">
+                            <span class="cert-label">Fair Market Valuation</span>
+                            <span class="cert-val" id="certFairPrice">₹ 5,31,000</span>
+                            <span class="cert-sub">Median Expected Transaction Value</span>
+                        </div>
+                        <div class="cert-price-card">
+                            <span class="cert-label">Instant Trade-in Cash</span>
+                            <span class="cert-val" id="certTradeInPrice">₹ 4,67,000</span>
+                            <span class="cert-sub">Immediate Dealer Liquidation</span>
+                        </div>
+                        <div class="cert-price-card">
+                            <span class="cert-label">Dealership Retail Price</span>
+                            <span class="cert-val" id="certRetailPrice">₹ 5,84,000</span>
+                            <span class="cert-sub">Certified Showroom List Price</span>
+                        </div>
+                    </div>
+
+                    <div class="cert-specs-table">
+                        <div class="cert-spec-item">
+                            <span class="cs-key">Engine Capacity:</span>
+                            <span class="cs-val" id="certEngine">1,197 CC</span>
+                        </div>
+                        <div class="cert-spec-item">
+                            <span class="cs-key">Max Power:</span>
+                            <span class="cs-val" id="certPower">82.0 bhp</span>
+                        </div>
+                        <div class="cert-spec-item">
+                            <span class="cs-key">Fuel Economy:</span>
+                            <span class="cs-val" id="certMileage">21.2 kmpl</span>
+                        </div>
+                        <div class="cert-spec-item">
+                            <span class="cs-key">Seating Capacity:</span>
+                            <span class="cs-val" id="certSeats">5 Seats</span>
+                        </div>
+                        <div class="cert-spec-item">
+                            <span class="cs-key">Seller Channel:</span>
+                            <span class="cs-val" id="certSeller">Individual</span>
+                        </div>
+                        <div class="cert-spec-item">
+                            <span class="cs-key">Confidence Range:</span>
+                            <span class="cs-val" id="certRange">₹ 5.09 L - ₹ 5.53 L</span>
+                        </div>
+                    </div>
+
+                    <div class="cert-notes">
+                        <p><strong>Appraisal Methodology:</strong> Calculated using an ensemble Random Forest regression model ($R^2=0.9209$) trained on 15,244 verified Indian automotive sales records. Valuation incorporates log-transformed price curves, non-linear age depreciation, and OEM powertrain specifications.</p>
+                    </div>
+                </div>
+
+                <div class="cert-footer">
+                    <div class="cert-barcode">
+                        <span class="barcode-mock">||||| | ||||| || |||||| | ||||| ||| |||| | ||</span>
+                        <span class="barcode-text">AUTHENTICATED DIGITAL CAR VALUATION CERTIFICATE</span>
+                    </div>
+                    <div class="cert-actions no-print">
+                        <button type="button" class="btn-cert-print" onclick="window.print()">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+                            Print Certificate / Save PDF
+                        </button>
+                        <button type="button" class="btn-cert-close" id="closeCertModal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Share Website & Valuation Modal -->
+    <div class="modal-overlay" id="shareModal" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-share">
+            <div class="share-modal-card">
+                <div class="share-modal-header">
+                    <div class="smh-left">
+                        <div class="smh-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+                        </div>
+                        <div>
+                            <h3 class="smh-title">Share AutoValuate AI</h3>
+                            <p class="smh-sub">Send this link to anyone to open the website directly in their browser</p>
+                        </div>
+                    </div>
+                    <button type="button" class="btn-modal-close" id="closeShareModal" aria-label="Close Share Dialog">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                    </button>
+                </div>
+
+                <div class="share-modal-body">
+                    <div class="share-item-preview" id="shareItemPreview">
+                        <div class="sip-badge" id="shareVehicleBadge">🚗 Maruti Swift VXi (4y)</div>
+                        <div class="sip-price" id="sharePriceBadge">Fair Market Valuation: ₹ 5.31 Lakhs</div>
+                    </div>
+
+                    <div class="share-url-box">
+                        <div class="share-tabs">
+                            <button type="button" class="share-tab active" id="tabShareValuation">With This Vehicle Config</button>
+                            <button type="button" class="share-tab" id="tabShareHomepage">Clean Homepage Link</button>
+                        </div>
+                        <div class="share-input-group">
+                            <input type="text" id="shareUrlInput" class="share-url-input" readonly value="http://127.0.0.1:5000">
+                            <button type="button" class="btn-copy-url" id="btnCopyShareUrl">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                                <span>Copy Link</span>
+                            </button>
+                        </div>
+                        <div class="share-copy-toast" id="shareCopyToast">✓ Link copied to clipboard! Share it anywhere.</div>
+                    </div>
+
+                    <div class="share-actions-row">
+                        <a href="#" target="_blank" rel="noopener noreferrer" class="btn-share-channel whatsapp" id="btnShareWhatsApp">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.301-.15-1.78-.879-2.056-.98-.276-.101-.476-.15-.677.15-.2.301-.776.98-.952 1.18-.175.2-.351.226-.652.075-.301-.15-1.27-.468-2.42-1.493-.895-.798-1.5-1.784-1.675-2.085-.176-.301-.019-.464.132-.614.136-.135.301-.351.452-.527.15-.176.2-.301.301-.502.101-.2.05-.376-.025-.526-.075-.15-.677-1.632-.928-2.235-.245-.588-.494-.508-.677-.518-.175-.008-.376-.01-.577-.01-.2 0-.527.075-.803.376s-1.054 1.03-1.054 2.511 1.079 2.912 1.23 3.113c.15.2 2.123 3.242 5.143 4.547.718.311 1.279.497 1.716.636.721.23 1.377.197 1.896.12.578-.087 1.78-.727 2.03-1.43.251-.703.251-1.305.176-1.43-.075-.125-.276-.2-.577-.351zM12.04 2C6.51 2 2.02 6.49 2.02 12.02c0 1.956.564 3.784 1.542 5.337L2 22l4.821-1.517A9.97 9.97 0 0 0 12.04 22c5.53 0 10.02-4.49 10.02-10.02 0-5.53-4.49-10.02-10.02-10.02z"/></svg>
+                            <span>Share on WhatsApp</span>
+                        </a>
+                        <button type="button" class="btn-share-channel native" id="btnShareNative">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+                            <span>System Share</span>
+                        </button>
+                        <a href="/" target="_blank" class="btn-share-channel open-link" id="btnShareOpenTab">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                            <span>Open in Browser</span>
+                        </a>
+                    </div>
+
+                    <div class="share-info-card">
+                        <div class="sic-icon">🌐</div>
+                        <div class="sic-text">
+                            <strong>Want to share with friends over the internet?</strong>
+                            <p>Double-click <code>Share AutoValuate AI Online.bat</code> on your Desktop to get an instant public HTTPS link that opens on any phone, tablet, or PC worldwide!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Application Footer -->
+    <footer class="app-footer">
+        <div class="footer-container">
+            <div class="footer-left">
+                <span class="footer-logo">AUTOVALUATE INTELLIGENCE</span>
+                <p class="footer-copy">Autonomous Machine Learning Vehicle Valuation Engine. Built for automotive transparency, pre-owned car dealerships, and vehicle buyers across India.</p>
+            </div>
+            <div class="footer-meta">
+                <div class="footer-pill">Model: Random Forest Regressor (150 Estimators)</div>
+                <div class="footer-pill">Evaluation: R² 0.9209 | MAE ₹98,195 | MAPE 12.9%</div>
+                <div class="footer-pill">Dataset: 15,244 Records • 31 Brands • 150+ Models</div>
+            </div>
+        </div>
+    </footer>
+
+    {% block extra_scripts %}{% endblock %}
+</body>
+</html>
